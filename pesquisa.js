@@ -26,9 +26,11 @@ var json_cartaz = JSON.parse(dados_cartaz);
 
 
 document.querySelector("h1").innerHTML = "Resultados da busca por " +nome;
+
+//exibe os filmes na tela gerando dinamicamente os "box" onde os filmes ficarão
 function filmes_buscados()
 {
-    var caixa_filmes = document.querySelectorAll('.movies-box');
+    var caixa_filmes = document.querySselectorAll('.movies-box');
     var i=0;
     if(json_filmes.results.length == 0)
     {
@@ -44,7 +46,7 @@ function filmes_buscados()
  
 }
 
-
+//cria dinamicamente um box onde um filme ficará
 function criaBoxFilme()
 {
     var section = document.querySelector("#movies-list");
@@ -60,6 +62,7 @@ function criaBoxFilme()
     div_moviebox.appendChild(texto);
     section.appendChild(div_moviebox);
 }
+//efetivamente mostra of filmes na tela, chamando as funcoes anteriores
 function mostraFilmes(json)
 {
     var i=0;
