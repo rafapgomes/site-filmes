@@ -3,7 +3,7 @@ var posterpath = 'https://image.tmdb.org/t/p/original'
 var url_filme = 'https://www.themoviedb.org/movie/'
 
 var lista = [];
-
+//faz a requisicao para a API do moviedb e retorna os filmes
 function httpGet(theUrl)
 {
     var xmlHttp = new XMLHttpRequest();
@@ -16,14 +16,8 @@ var res = httpGet(theUrl);
 
 var json_filmes = JSON.parse(res);
 
-console.log(posterpath+ json_filmes.results[0].poster_path);
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+console.log(json_filmes.results);
+// Gera uma lista de números de 0 a 19 para garantir variedade ao exibir filmes nas 8 caixas disponíveis.
 
 function geranumero(lista,i)
 {       
@@ -56,12 +50,12 @@ function compara(lista,numero)
     }
     return 0;
 }
-
+//exibe os filmes na tela gerando dinamicamente os "box" onde os filmes ficarão
 function buscaApi()
 {
     var caixa_filmes = document.querySelectorAll('.movies-box');
     var i=0;
-    geranumero(lista,0);
+    geranumero(lista,0)
     for(caixa of caixa_filmes)
     {       
         caixa.querySelector('#texto').innerHTML = json_filmes.results[lista[i]].title;
@@ -81,7 +75,7 @@ function buscaApi()
 buscaApi();
 
 document.querySelector('i').onclick = Salvabusca;
-
+//salva o que foi digitado no campo de busca no sessionstorage para poder ser recuperado no pesquisa.js
 function Salvabusca()
 {
     var valor = document.querySelector(".search").querySelector("input").value;
