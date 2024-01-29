@@ -30,7 +30,7 @@ document.querySelector("h1").innerHTML = "Resultados da busca por " +nome;
 //exibe os filmes na tela gerando dinamicamente os "box" onde os filmes ficarão
 function filmes_buscados()
 {
-    var caixa_filmes = document.querySselectorAll('.movies-box');
+    var caixa_filmes = document.querySelectorAll('.movies-box');
     var i=0;
     if(json_filmes.results.length == 0)
     {
